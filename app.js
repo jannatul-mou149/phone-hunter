@@ -21,6 +21,7 @@ const displaySearchResult = (data) => {
             <img src="${data.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${data.phone_name}</h5>
+                <p>${data.brand}</p>
             </div>
         </div>
         `;
@@ -32,5 +33,25 @@ const loadMobileDetail = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data.data));
+        .then(data => displayMobileDetail(data.data.mainFeatures));
+}
+
+const displayMobileDetail = mainFeatures => {
+    console.log(mainFeatures);
+    const mobileDetails = document.getElementById('mobile-details');
+    mobileDetails.textContent = '';
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+                <div class="card-body">
+                    
+                    <ul class="card-text">
+                    <li>${mainFeatures.storage}</li>
+                    <li>${mainFeatures.displaySize}</li>
+                    <li>${mainFeatures.chipSet}</li>
+                    <li>${mainFeatures.memory}</li>
+                    </ul>
+                </div>
+    `
+    mobileDetails.appendChild(div)
 }

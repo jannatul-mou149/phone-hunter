@@ -8,17 +8,23 @@
     <!-- bootstrap link below -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- external css -->
+    <link rel="stylesheet" href="style.css">
     <title>Mobile Explorer</title>
 </head>
 
-<body>
-    <section class="container">
-        <h1 class="text-center p-5">Mobile Explorer</h1>
-        <div class="input-group mb-3 pt-4 w-50 mx-auto">
-            <input id="search-field" type="text" class="form-control" placeholder="Search mobile here"
+<body class="pt-4 text-center">
+    <section class="container" style="max-width:500px;">
+        <a href="#">
+            <img src="images/magnifying-glass-145942__340.webp" alt="" style="max-width:150px;">
+        </a>
+        <h1 class="text-center pb-3 text-info">Mobile Explorer</h1>
+        <div class="input-group mb-3 pt-4 mx-auto" id="input_container">
+            <input id="search-field" type="text" class="form-control shadow" placeholder=" 📱  Type mobile name . . . "
                 aria-label="Search" aria-describedby="basic-addon2">
             <div class="input-group-append">
-                <span onclick="searchMobile()" class="input-group-text" id="search-btn">Search
+                <span onclick="searchMobile()" class="input-group-text bg-info" style="cursor: pointer;"
+                    id="search-btn">Search</span>
             </div>
         </div>
         <!-- Each mobile details -->
