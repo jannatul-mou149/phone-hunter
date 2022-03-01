@@ -1,32 +1,39 @@
-/* #search-field {
-    border-radius: 30px 0 0 30px;
-}
-#search-btn {
-    border-radius: 0 30px 30px 0;
-} */
 .card{
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    box-shadow: 0 0 10px 3px rgba(197, 198, 200, 0.4);
+    padding: 15px;
     margin: auto;
     width: 18rem;
 }
+.card:hover{
+    box-shadow: 0 0 10px 3px rgb(36, 107, 240 , 0.25);
+}
 
-.btn-grad {background-image: linear-gradient(to right, #24C6DC 0%, #514A9D  51%, #24C6DC  100%)}
+/* .btn-grad {background-image: linear-gradient(to right, #24C6DC 0%, #514A9D  51%, #24C6DC  100%)} */
 .btn-grad {
+   background-color:rgb(36, 107, 240);
    margin: auto;
-   padding: 8px 40px;
+   padding: 5px 35px;
    text-align: center;
+   font-weight: 500;
+   letter-spacing: 1.5px;
    text-transform: uppercase;
    transition: 0.5s;
    background-size: 200% auto;
    color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 20px;
    display: block;
-   border: none;
+   border: 3px solid rgb(36, 107, 240);
  }
 
 .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
+   background:transparent;
+   color: rgb(36, 107, 240) ;
+   border-bottom: 3px solid rgb(36, 107, 240);
+   border-top: none;
+   border-left: none;
+   border-right: none;
+   transition: 0.4s;
    text-decoration: none;
 }
 @media only screen and (min-width:769px){
