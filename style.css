@@ -1,5 +1,4 @@
 .card{
-    /* border: 2px solid red; */
     border-radius: 10px;
     box-shadow: 0 0 10px 3px rgba(197, 198, 200, 0.4);
     padding: 15px;
@@ -9,8 +8,6 @@
 .card:hover{
     box-shadow: 0 0 10px 3px rgb(36, 107, 240 , 0.25);
 }
-
-/* .btn-grad {background-image: linear-gradient(to right, #24C6DC 0%, #514A9D  51%, #24C6DC  100%)} */
 .btn-grad {
    background-color:rgb(36, 107, 240);
    margin: auto;
@@ -35,6 +32,10 @@
    border-right: none;
    transition: 0.4s;
    text-decoration: none;
+}
+li{
+    list-style: none;
+    font-size: .9rem;
 }
 @media only screen and (min-width:769px){
     .detail-card{

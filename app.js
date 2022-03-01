@@ -1,9 +1,10 @@
+//Searching mobile 
 const searchMobile = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     // console.log(searchText);
 
-
+    //error showing for empty search field
     const errorDiv = document.getElementById("error-message");
     if (searchText == "") {
         errorDiv.innerText = "Please type mobile name to search...";
@@ -18,6 +19,7 @@ const searchMobile = () => {
 
     }
 }
+//diplaying search result on UI
 const displaySearchResult = (data) => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
@@ -55,15 +57,14 @@ const displaySearchResult = (data) => {
         errorDiv.innerText = "No result found!";
     }
 }
-
-
+//Loading mobile details 
 const loadMobileDetail = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayMobileDetail(data.data));
 }
-
+//diplaying details of mobile using new card
 const displayMobileDetail = data => {
     console.log(data);
     const mobileDetails = document.getElementById('mobile-details');
@@ -88,27 +89,29 @@ const displayMobileDetail = data => {
         })()
 
         }
-                    <h6 class="text-start pt-3">Main Features: </h6>
+                    <h5 class="text-start pt-3 text-primary">Main Features : </h5>
                     <li class="text-start">Storage : ${data.mainFeatures.storage}</li>
                     <li class="text-start">Display Size : ${data.mainFeatures.displaySize}</li>
                     <li class="text-start">Chipset : ${data.mainFeatures.chipSet}</li>
                     <li class="text-start">Memory : ${data.mainFeatures.memory}</li>
                     </ul>
-                    
+        
                     <ul>
-                    <h6 class="text-start pt-3">Sensors: </h6>
+                    <h5 class="text-start pt-3 text-primary">Sensors : </h5>
                     <li class="text-start"> ${data.mainFeatures.sensors}</li>
                     </ul>
+                    
                     ${(() => {
             if (data.others !== undefined) {
                 return `  <ul>
-                            <h6 class="text-start pt-3">Others Features : </h6>
+                            <h5 class="text-start pt-3 text-primary">Others Features : </h5>
                             <li class="text-start">WLAN : ${data.others.WLAN}</li>
                             <li class="text-start">Bluetooth : ${data.others.Bluetooth}</li>
                             <li class="text-start">GPS : ${data.others.GPS}</li>
                             <li class="text-start">Radio : ${data.others.Radio}</li>
                             <li class="text-start">USB : ${data.others.USB}</li>
                             </ul>`;
+
 
             }
             else {
@@ -118,7 +121,7 @@ const displayMobileDetail = data => {
 
         })()
         }
-                </div>
+        </div>
     `
     mobileDetails.appendChild(div)
 }
