@@ -88,7 +88,7 @@ const displayMobileDetail = data => {
         })()
 
         }
-                    <h6 class="text-start pt-3">Features: </h6>
+                    <h6 class="text-start pt-3">Main Features: </h6>
                     <li class="text-start">Storage : ${data.mainFeatures.storage}</li>
                     <li class="text-start">Display Size : ${data.mainFeatures.displaySize}</li>
                     <li class="text-start">Chipset : ${data.mainFeatures.chipSet}</li>
@@ -99,14 +99,25 @@ const displayMobileDetail = data => {
                     <h6 class="text-start pt-3">Sensors: </h6>
                     <li class="text-start"> ${data.mainFeatures.sensors}</li>
                     </ul>
-                    <ul>
-                    <h6 class="text-start pt-3">Others: </h6>
-                    <li class="text-start">WLAN : ${data.others.WLAN}</li>
-                    <li class="text-start">Bluetooth : ${data.others.Bluetooth}</li>
-                    <li class="text-start">GPS : ${data.others.GPS}</li>
-                    <li class="text-start">Radio : ${data.others.Radio}</li>
-                    <li class="text-start">USB : ${data.others.USB}</li>
-                    </ul>
+                    ${(() => {
+            if (data.others !== undefined) {
+                return `  <ul>
+                            <h6 class="text-start pt-3">Others Features : </h6>
+                            <li class="text-start">WLAN : ${data.others.WLAN}</li>
+                            <li class="text-start">Bluetooth : ${data.others.Bluetooth}</li>
+                            <li class="text-start">GPS : ${data.others.GPS}</li>
+                            <li class="text-start">Radio : ${data.others.Radio}</li>
+                            <li class="text-start">USB : ${data.others.USB}</li>
+                            </ul>`;
+
+            }
+            else {
+                return ``;
+
+            }
+
+        })()
+        }
                 </div>
     `
     mobileDetails.appendChild(div)
