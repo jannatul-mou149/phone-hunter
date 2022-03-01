@@ -17,11 +17,12 @@ const displaySearchResult = (data) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div onclick="loadMobileDetail('${data.slug}')" class="card h-100">
+        <div class="card h-100">
             <img src="${data.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${data.phone_name}</h5>
                 <p>${data.brand}</p>
+                <button onclick="loadMobileDetail('${data.slug}')" class="btn-grad">Detail</button>
             </div>
         </div>
         `;
@@ -33,23 +34,26 @@ const loadMobileDetail = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayMobileDetail(data.data.mainFeatures));
+        .then(data => displayMobileDetail(data.data));
 }
 
-const displayMobileDetail = mainFeatures => {
-    console.log(mainFeatures);
+const displayMobileDetail = data => {
+    console.log(data);
     const mobileDetails = document.getElementById('mobile-details');
     mobileDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
                 <div class="card-body">
-                    
+                <img src="${data.image}" class="card-img-top" alt="...">
+                <h5 class="card-title pt-2 pb-3">${data.name}</h5>
                     <ul class="card-text">
-                    <li>${mainFeatures.storage}</li>
-                    <li>${mainFeatures.displaySize}</li>
-                    <li>${mainFeatures.chipSet}</li>
-                    <li>${mainFeatures.memory}</li>
+                    <h6 class="text-start">${data.releaseDate}</h6>
+                    <h6 class="text-start">Features: </h6>
+                    <li>Storage : ${data.mainFeatures.storage}</li>
+                    <li>Display Size : ${data.mainFeatures.displaySize}</li>
+                    <li>Chipset : ${data.mainFeatures.chipSet}</li>
+                    <li>Memory : ${data.mainFeatures.memory}</li>
                     </ul>
                 </div>
     `
